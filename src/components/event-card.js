@@ -18,7 +18,10 @@ const EventCard = ({ event }) => {
       'https://sleepy-villani-37e19c.netlify.app/.netlify/functions/pingEvents'
     )
       .then(res => res.json())
-      .then(data => console.log(data));
+      .then(data => {
+        console.log(data);
+        data.items.forEach(item => console.log(item.content));
+      });
   }, []);
 
   return (
