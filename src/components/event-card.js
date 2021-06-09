@@ -20,8 +20,13 @@ const EventCard = ({ event }) => {
       .then(res => res.json())
       .then(data => {
         console.log(data.msg);
+
+        let regex = 'w+(day), w+ d{1,2} (at) d{1,2}:d{1,2} w+/g';
+
         let { items } = data.msg;
-        items.forEach(item => console.log(item.content));
+        items.forEach(item => {
+          console.log(item.content.match(regex));
+        });
       });
   }, []);
 
