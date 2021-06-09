@@ -19,7 +19,7 @@ const EventCard = ({ event }) => {
     )
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        console.log(data.msg);
         let { items } = data.msg;
         items.forEach(item => console.log(item.content));
       });
