@@ -20,7 +20,8 @@ const EventCard = ({ event }) => {
       .then(res => res.json())
       .then(data => {
         console.log(data);
-        data.items.forEach(item => console.log(item.content));
+        let { items } = data.msg;
+        items.forEach(item => console.log(item.content));
       });
   }, []);
 
