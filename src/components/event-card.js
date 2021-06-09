@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect } from 'react';
 import heroImage from '../images/freeCodeCampImage.jpeg';
 import { formatUnixToLocaleString } from '../utils';
 
@@ -12,6 +12,15 @@ const EventCard = ({ event }) => {
     utc_offset,
     venue: { name: venueName },
   } = event;
+
+  useEffect(() => {
+    fetch(
+      'https://sleepy-villani-37e19c.netlify.app/.netlify/functions/pingEvents'
+    )
+      .then(res => res.json())
+      .then(data => console.log(data));
+  }, []);
+
   return (
     <div className="p-4 border border-solid border-gray-400 mx-auto">
       <a
