@@ -23,6 +23,8 @@ const EventCard = ({ event }) => {
 
         let regex = /\w+(day), \w+ \d{1,2} (at) \d{1,2}:\d{1,2} \w+/g;
 
+        // need date, title, picture, and event type (Online or in-person)
+
         let { items } = data.msg;
         items.forEach(item => {
           console.log(item.content.match(regex));
